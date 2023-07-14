@@ -1,0 +1,9 @@
+.app{
+  margin: 0;
+  padding: 0;
+}
+svg{
+  color: #3c7878;
+  font-weight: bolder;
+  font-size: 20px !important;
+}
