@@ -4,7 +4,8 @@ const mongoose = require('mongoose');
 const AuthorSubmit = mongoose.Schema({
     title : String,
     description : String,
-    fileURL : String
+    fileURL : String,
+    email : String
 
 },{
     timestamps: true

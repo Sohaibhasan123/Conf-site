@@ -9,10 +9,11 @@ exports.CreateAuthorSubmitController = async (req, res, next) => {
         const title = req.body.title;
         const description = req.body.description;
         const fileURL =req.file.path;
+        const email =req.body.email;
         if(!title || !description || !fileURL){
             return res.send({code: 400, massage: "Bad Request"})
         }
-        const registeredInfo = await authorSubmitServices.createAuthorSubmitServices({'description': description , 'fileURL' : fileURL, 'title': title});
+        const registeredInfo = await authorSubmitServices.createAuthorSubmitServices({'description': description , 'fileURL' : fileURL, 'title': title, 'email': email});
         res.status(200).json({
             status: "success",
             message: "Submission completed successfully",
