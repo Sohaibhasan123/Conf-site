@@ -1,6 +1,6 @@
 import React from 'react';
 import SideNavbar from '../../../Component/Shared/SideNavbar/SideNavbar';
-import AuthorSubmitForm from '../../../Component/AuthorComponent/AuthorSubmitForm/AuthorSubmitForm';
+import Form from '../../../Component/AuthorComponent/PaperSubmission/Form'
 
 const SubmitPaperForm = () => {
     return (
@@ -9,7 +9,7 @@ const SubmitPaperForm = () => {
                 <SideNavbar></SideNavbar>
             </div>
             <div className='col-md-10'>
-               <AuthorSubmitForm></AuthorSubmitForm>
+               <Form></Form>
             </div>
         </div>
     );

@@ -1,10 +1,10 @@
 import React, { useContext, useState } from 'react';
 import axios from 'axios';
-import {Link, useNavigate } from 'react-router-dom';
+import {useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Context/AuthProvider/AuthProvider';
 
-const AuthorSubmitForm = () => {
 
+const AuthorInfoForSubmission = () => {
     const [fileURL, setFileURL] = useState('');
     const [description, setDescription] = useState('');
     const [Title, setTitle] = useState('');
@@ -23,6 +23,7 @@ const AuthorSubmitForm = () => {
         const proceed = window.confirm("Are You Sure? You Want To Submit")
 
         if(proceed){
+            
             axios.post('http://localhost:8080/api/v1/submit', formData)
             .then(function (response) {
                 console.log(response);
@@ -34,50 +35,19 @@ const AuthorSubmitForm = () => {
                 alert('Paper Submission Failed');
             });
         }
-        // fetch('http://localhost:5055/addService', {
-        //     method: "POST",
-        //     headers: { "Content-type": "application/json" },
-        //     body: JSON.stringify(imageData),
-        // })
-
-        //     .then(res => {
-        //         console.log('server side response: ', res)
-        //         if (res) {
-        //             alert("your service Added successfully")
-        //         }
-        //     })
 
 
         console.log("12", formData)
     };
-
-
-    // const handleImage = (event) => {
-
-        // imageData.set('key', 'eb6f98c2db8a2cc464f62fd61476c603')
-        // imageData.append('image', event.target.files[0])
-
-
-        // axios.post('https://api.imgbb.com/1/upload', imageData)
-        //     .then(function (response) {
-        //         setImgURL({
-        //             image_url: response.data.data.display_url
-        //         });
-        //     })
-        //     .catch(function (error) {
-        //         console.log(error);
-        //     });
-    // }
-
-
     return (
-        <div className='container my-4'>
+        <div>
+            <div className='container my-4'>
             <label className="mt-3 text-dark"><strong>Title : </strong> </label>
-            <textarea className='form-control' type="text" placeholder=" Title " onChange={(e) => setTitle(e.target.value)} value={Title} />
+            <textarea className='form-control' type="text" placeholder=" Title " onChange={(e) => setTitle(e.target.value)} />
 
 
             <label className="mt-3 text-dark"><strong>Description : </strong> </label>
-            <textarea className='form-control' type="text" placeholder="Write Here Your Description " onChange={(e) => setDescription(e.target.value)} style={{ height: "150px" }} value={description} />
+            <textarea className='form-control' type="text" placeholder="Write Here Your Description " onChange={(e) => setDescription(e.target.value)} style={{ height: "150px" }} />
 
 
             <label className="mt-3 text-dark"><strong>Upload your Paper : </strong></label>
@@ -90,14 +60,12 @@ const AuthorSubmitForm = () => {
 
 
             <div class="d-grid gap-2 col-6 mx-auto my-4">
-                <Link  class="btn btn-primary" to='/author-info'>Submit</Link>
-            </div>
-            {/* <div class="d-grid gap-2 col-6 mx-auto my-4">
                 <button class="btn btn-primary" onClick={handleSubmit}>Submit</button>
-            </div> */}
+            </div>
 
+        </div>
         </div>
     );
 };
 
-export default AuthorSubmitForm;
+export default AuthorInfoForSubmission;

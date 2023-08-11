@@ -6,7 +6,7 @@ import Committee from './Component/Home/committee/committee';
 import AuthorHomePage from './Pages/AuthorDashboard/AuthorHomePage/AuthorHomePage';
 import PrivateRoute from './Component/Shared/PrivateRoute/PrivateRoute';
 import AddAdmin from './Pages/TractChair/AddAdmin/AddAdmin';
-import SubmitPaperForm from './Pages/AuthorDashboard/SubmitPaperForm/SubmitPaperForm';
+
 import Services from './Component/AuthorComponent/AuthorHistory/Services/Services';
 import ImportantDates from './Pages/ImportantDate/ImportantDates';
 import Contact from './Pages/Contact/Contact';
@@ -22,6 +22,8 @@ import ReviewerHomePage from './Pages/ReviewerDashboard/ReviewerHomePage/Reviewe
 import ReviewerOutlet from './Component/root/ReviewerOutlet';
 import AddReviewer from './Pages/TractChair/AddReviewer/AddReviewer';
 import ReviewerPrivetRoute from './Component/Shared/ReviewerPrivetRoute/ReviewerPrivetRoute';
+import SubmitPaperForm from './Pages/AuthorDashboard/SubmitPaperForm/SubmitPaperForm'
+import AuthorInfoForSubmission from './Component/AuthorComponent/AuthorSubmitForm/AuthorInfoForSubmission';
 
 
 
@@ -38,7 +40,9 @@ function App() {
           <Route path="/" element={<HomePage />} />
           <Route path="/home" element={<HomePage />} />
           <Route path="/committee" element={<Committee />} />
-          <Route path="/author" element={<PrivateRoute><AuthorHomePage /></PrivateRoute>} /><Route path="/submit-paper" element={<SubmitPaperForm />} />
+          <Route path="/author" element={<PrivateRoute><AuthorHomePage /></PrivateRoute>} />
+          <Route path="/submit-paper" element={<SubmitPaperForm />} />
+          <Route path="/author-form" element={<AuthorInfoForSubmission />} />
           <Route path="/history" element={<PrivateRoute><Services /></PrivateRoute>} />
           <Route path="/dates" element={<ImportantDates />} />
           <Route path="/contact" element={<Contact />} />

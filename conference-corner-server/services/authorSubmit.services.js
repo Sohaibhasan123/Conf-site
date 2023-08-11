@@ -1,8 +1,8 @@
 const authorSubmitModel = require("../models/authorSubmit.model")
 
-exports.createAuthorSubmitServices = async ({'description': description , 'fileURL' : fileURL, 'title': title, 'email': email}) => {
-    const submitInfo = await authorSubmitModel.create({'description': description , 'fileURL' : fileURL, 'title': title, 'email': email});
-    console.log(submitInfo);
+exports.createAuthorSubmitServices = async (submitInformation) => {
+    console.log('from AuthorServices',submitInformation);
+    const submitInfo = await authorSubmitModel.create(submitInformation);
     return submitInfo;
 };
 exports.getAuthorSubmitServices = async () => {

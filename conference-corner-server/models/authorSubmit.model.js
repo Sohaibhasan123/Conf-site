@@ -3,9 +3,18 @@ const mongoose = require('mongoose');
 
 const AuthorSubmit = mongoose.Schema({
     title : String,
-    description : String,
+    abstract : String,
     fileURL : String,
-    email : String
+    keywords : String,
+    author : [{
+      firstName: String,
+      lastName: String,
+      email: String,
+      country: String,
+      address: String,
+      affiliation: String,
+    }]
+
 
 },{
     timestamps: true
