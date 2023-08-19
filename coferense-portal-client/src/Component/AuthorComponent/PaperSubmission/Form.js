@@ -5,18 +5,22 @@ import FilesUpload from "./FilesUpload";
 import AuthorInfo from "./AuthorInfo";
 import { MdOutlineArrowForwardIos } from 'react-icons/md';
 import { IoIosArrowBack } from 'react-icons/io'
-import { Link, useNavigate } from 'react-router-dom';
+import { AiOutlineUserAdd } from 'react-icons/ai'
+import { useNavigate } from 'react-router-dom';
 import axios from "axios";
 import Swal from 'sweetalert2'
 
 
 function Form() {
   const [page, setPage] = useState(0);
+  const [wordLimit, setWordLimit] = useState(0);
+  const [isValid, setIsValid] = useState(true);
   const [formData, setFormData] = useState({
     title: "",
     abstract: "",
     keywords: "",
     fileURL: "",
+    paperDomain: '',
     author: [{
       firstName: "",
       lastName: "",
@@ -51,14 +55,14 @@ function Form() {
   }
   const PageDisplay = () => {
     if (page === 0) {
-      return <PaperInfo formData={formData} setFormData={setFormData} />;
+      return <PaperInfo formData={formData} setFormData={setFormData} wordLimit={wordLimit} setWordLimit={setWordLimit} setIsValid={setIsValid} isValid={isValid} />;
     } else if (page === 1) {
       return (
         <>
           {formData?.author?.map((specific, index) => <AuthorInfo key={index} formData={formData} setFormData={setFormData} specific={specific} index={index} handleFormChange={handleFormChange} />
           )}
 
-          <button onClick={addFields} className="add btn btn-outline-secondary">Add More Author+</button>
+          <button onClick={addFields} className="add btn btn-outline-secondary d-flex align-items-center"><AiOutlineUserAdd className="fs-4" /> <strong className="mx-2">Add More Author</strong></button>
         </>
 
 
@@ -93,7 +97,8 @@ function Form() {
           >
             <IoIosArrowBack />  Prev
           </button>
-          <button
+          {isValid && 
+            <button
             onClick={() => {
               if (page === FormTitles.length - 1) {
                 // const proceed = window.confirm("Are You Sure? You Want To Submit")
@@ -116,6 +121,7 @@ function Form() {
                     Data.append('abstract', formData.abstract)
                     Data.append('keywords', formData.keywords)
                     Data.append('fileURL', formData.fileURL)
+                    Data.append('paperDomain', formData.paperDomain)
                     formData.author.forEach(function (element, index) {
                       Data.append(`author[${index}][firstName]`, element.firstName);
                       Data.append(`author[${index}][lastName]`, element.lastName);
@@ -133,7 +139,8 @@ function Form() {
                           'Successfully Submitted!',
                           'success'
                         )
-                         navigate('/history');
+                        console.log('llllllllllllll', response);
+                        navigate('/history');
                       })
                       .catch(function (error) {
                         Swal.fire({
@@ -158,6 +165,7 @@ function Form() {
           >
             {page === FormTitles.length - 1 ? "Submit" : <>Next <MdOutlineArrowForwardIos /></>}
           </button>
+          }
         </div>
       </div>
     </div>

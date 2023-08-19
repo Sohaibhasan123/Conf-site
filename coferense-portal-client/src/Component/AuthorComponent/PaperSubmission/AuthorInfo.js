@@ -15,8 +15,14 @@ function AuthorInfo({ formData, setFormData, index, handleFormChange }) {
               type="text"
               placeholder="First Name..."
               name="firstName"
-              value={formData.firstName}
-              onChange={event => handleFormChange(event, index)}
+              value={formData['author'][index]['firstName']}
+              onChange={event => {
+                let data = [...formData['author']];
+                data[index][event.target.name] = event.target.value
+                setFormData(
+                  {...formData, author: data}
+                )
+              }}
             />
           </div>
           <div>
@@ -26,8 +32,14 @@ function AuthorInfo({ formData, setFormData, index, handleFormChange }) {
               type="text"
               placeholder="Last Name..."
               name="lastName"
-              value={formData.lastName}
-              onChange={event => handleFormChange(event, index)}
+              value={formData['author'][index]['lastName']}
+              onChange={event => {
+                let data = [...formData['author']];
+                data[index][event.target.name] = event.target.value
+                setFormData(
+                  {...formData, author: data}
+                )
+              }}
             />
           </div>
         </div>
@@ -41,8 +53,14 @@ function AuthorInfo({ formData, setFormData, index, handleFormChange }) {
               type="email"
               placeholder="Enter Your Email...."
               name="email"
-              value={formData.email}
-              onChange={event => handleFormChange(event, index)}
+              value={formData['author'][index]['email']}
+              onChange={event => {
+                let data = [...formData['author']];
+                data[index][event.target.name] = event.target.value
+                setFormData(
+                  {...formData, author: data}
+                )
+              }}
             />
           </div>
           <div>
@@ -52,8 +70,14 @@ function AuthorInfo({ formData, setFormData, index, handleFormChange }) {
               type="text"
               placeholder="Affiliation...."
               name="affiliation"
-              value={formData.affiliation}
-              onChange={event => handleFormChange(event, index)}
+              value={formData['author'][index]['affiliation']}
+              onChange={event => {
+                let data = [...formData['author']];
+                data[index][event.target.name] = event.target.value
+                setFormData(
+                  {...formData, author: data}
+                )
+              }}
             />
           </div>
         </div>
@@ -66,8 +90,14 @@ function AuthorInfo({ formData, setFormData, index, handleFormChange }) {
               type="text"
               placeholder="Enter Your Country Name...."
               name="country"
-              value={formData.country}
-              onChange={event => handleFormChange(event, index)}
+              value={formData['author'][index]['country']}
+              onChange={event => {
+                let data = [...formData['author']];
+                data[index][event.target.name] = event.target.value
+                setFormData(
+                  {...formData, author: data}
+                )
+              }}
             />
           </div>
           <div>
@@ -77,8 +107,14 @@ function AuthorInfo({ formData, setFormData, index, handleFormChange }) {
               type="text"
               placeholder="Enter Your Address...."
               name="address"
-              value={formData.address}
-              onChange={event => handleFormChange(event, index)}
+              value={formData['author'][index]['address']}
+              onChange={event => {
+                let data = [...formData['author']];
+                data[index][event.target.name] = event.target.value
+                setFormData(
+                  {...formData, author: data}
+                )
+              }}
             />
           </div>
         </div>
