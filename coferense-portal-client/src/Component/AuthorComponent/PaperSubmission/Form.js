@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import "./Form.css";
 import PaperInfo from "./PaperInfo";
 import FilesUpload from "./FilesUpload";
@@ -9,9 +9,11 @@ import { AiOutlineUserAdd } from 'react-icons/ai'
 import { useNavigate } from 'react-router-dom';
 import axios from "axios";
 import Swal from 'sweetalert2'
+import { AuthContext } from "../../Context/AuthProvider/AuthProvider";
 
 
 function Form() {
+  const {loggedUser } = useContext(AuthContext);
   const [page, setPage] = useState(0);
   const [wordLimit, setWordLimit] = useState(0);
   const [isValid, setIsValid] = useState(true);
@@ -24,7 +26,7 @@ function Form() {
     author: [{
       firstName: "",
       lastName: "",
-      email: "",
+      email: loggedUser?.email,
       country: "",
       address: "",
       affiliation: '',
@@ -38,7 +40,7 @@ function Form() {
     let object = {
       firstName: "",
       lastName: "",
-      email: "",
+      email: '',
       country: "",
       address: "",
       affiliation: '',
@@ -55,6 +57,7 @@ function Form() {
   }
   const PageDisplay = () => {
     if (page === 0) {
+      console.log(formData);
       return <PaperInfo formData={formData} setFormData={setFormData} wordLimit={wordLimit} setWordLimit={setWordLimit} setIsValid={setIsValid} isValid={isValid} />;
     } else if (page === 1) {
       return (

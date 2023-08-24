@@ -24,6 +24,7 @@ import AddReviewer from './Pages/TractChair/AddReviewer/AddReviewer';
 import ReviewerPrivetRoute from './Component/Shared/ReviewerPrivetRoute/ReviewerPrivetRoute';
 import SubmitPaperForm from './Pages/AuthorDashboard/SubmitPaperForm/SubmitPaperForm'
 import AuthorInfoForSubmission from './Component/AuthorComponent/AuthorSubmitForm/AuthorInfoForSubmission';
+import RequestForReviewer from './Pages/AuthorDashboard/RequestForReviewer/RequestForReviewer';
 
 
 
@@ -41,6 +42,7 @@ function App() {
           <Route path="/home" element={<HomePage />} />
           <Route path="/committee" element={<Committee />} />
           <Route path="/author" element={<PrivateRoute><AuthorHomePage /></PrivateRoute>} />
+          <Route path="/reviewer-qualification" element={<PrivateRoute><RequestForReviewer /></PrivateRoute>} />
           <Route path="/submit-paper" element={<SubmitPaperForm />} />
           <Route path="/author-form" element={<AuthorInfoForSubmission />} />
           <Route path="/history" element={<PrivateRoute><Services /></PrivateRoute>} />

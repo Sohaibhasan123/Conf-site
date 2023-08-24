@@ -7,7 +7,7 @@ const AdminPrivetRoute =  ({children}) => {
 
 
 
-    const {loading , loggedUser, admin } = useContext(AuthContext);
+    const {loading ,  admin } = useContext(AuthContext);
     
     if (loading) {
         console.log('addddddddddddddddddd', admin);

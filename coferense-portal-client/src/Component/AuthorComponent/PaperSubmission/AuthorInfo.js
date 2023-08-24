@@ -1,11 +1,11 @@
 import React from "react";
 
-function AuthorInfo({ formData, setFormData, index, handleFormChange }) {
+function AuthorInfo({ formData, setFormData, index}) {
 
   return (
     <div className="authorForm">
 
-      <div className="authorContainer pb-5">
+      <div className="authorContainer border border-secondary pb-5">
         <h4 className=" text-center my-3">Author {index + 1}</h4>
         <div className="d-flex justify-content-around">
           <div>
@@ -18,7 +18,7 @@ function AuthorInfo({ formData, setFormData, index, handleFormChange }) {
               value={formData['author'][index]['firstName']}
               onChange={event => {
                 let data = [...formData['author']];
-                data[index][event.target.name] = event.target.value
+                data[index][event.target.name] = event.target.value 
                 setFormData(
                   {...formData, author: data}
                 )

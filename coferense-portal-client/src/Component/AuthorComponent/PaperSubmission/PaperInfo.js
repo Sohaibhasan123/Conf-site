@@ -3,7 +3,7 @@ import React from "react";
 function PaperInfo({ formData, setFormData, wordLimit , setWordLimit , setIsValid, isValid  }) {
 
   return (
-    <div className="w-70 m-auto authorContainer my-5">
+    <div className="w-70 m-auto  authorContainer my-5">
       <div>
         <label className="mt-3 text-dark"><strong>Title : </strong> </label>
         <input
@@ -40,7 +40,7 @@ function PaperInfo({ formData, setFormData, wordLimit , setWordLimit , setIsVali
             if(res.length > 5 ){
               setIsValid(false)
               document.querySelector('#textarea_message').innerText= 'max length '+5+' Words only!';
-              document.getElementById('word').setAttribute('style' , 'border: 5px solid red')
+              document.getElementById('word').setAttribute('style' , 'border: 3px solid red')
             }
             else
               {

@@ -6,6 +6,7 @@ import 'firebase/auth';
 import './SignUp.css';
 import { FaGoogle } from "react-icons/fa";
 import { AuthContext } from '../../Component/Context/AuthProvider/AuthProvider';
+import Swal from 'sweetalert2'
 
 const SignUp = () => {
 
@@ -74,6 +75,19 @@ const SignUp = () => {
                 newUserinfo.name = res.user.displayName;
                 setUser(newUserinfo);
                 navigate('/author');
+                Swal.fire({
+                    title: '<strong>Wanna be a Reviewer?</strong>',
+                    icon: 'question',
+                    html:
+                      '<b><a className="link" href="/reviewer-qualification">Please Provide your Pertinence</a></b>',
+                     showCloseButton: true,
+                     showConfirmButton: false,
+                    // showCancelButton: true,
+                    // focusConfirm: false,
+                    // cancelButtonAriaLabel: 'Thumbs down'
+                  }
+                    
+                  )
             }).catch((error) => {
 
                 var errorCode = error.code;

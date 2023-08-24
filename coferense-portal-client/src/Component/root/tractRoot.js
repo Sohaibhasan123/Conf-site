@@ -1,7 +1,6 @@
 import { Link, Outlet } from "react-router-dom";
 import Footer from "../Shared/Footer/Footer";
-import './trac.css'
-import SideNavbar from "../Shared/SideNavbar/SideNavbar";
+import './trac.css';
 import HomeNavBar from "../Shared/HomeNavBar/HomeNavBar";
 
 
