@@ -27,9 +27,14 @@ function Form() {
       firstName: "",
       lastName: "",
       email: loggedUser?.email,
-      country: "",
-      address: "",
       affiliation: '',
+      country: "",
+      state: "",
+      city: "",
+      postCode : "",
+      street : "",
+      line1 : "",
+      line2 : "",
     }],
 
   });
@@ -41,9 +46,14 @@ function Form() {
       firstName: "",
       lastName: "",
       email: '',
-      country: "",
-      address: "",
       affiliation: '',
+      country: "",
+      state: "",
+      city: "",
+      postCode : "",
+      street : "",
+      line1 : "",
+      line2 : "",
     }
     let author = [...formData['author'], object]
     setFormData({ ...formData, author })
@@ -67,11 +77,7 @@ function Form() {
 
           <button onClick={addFields} className="add btn btn-outline-secondary d-flex align-items-center"><AiOutlineUserAdd className="fs-4" /> <strong className="mx-2">Add More Author</strong></button>
         </>
-
-
       )
-
-
 
     } else {
       return <FilesUpload formData={formData} setFormData={setFormData} />;
@@ -129,9 +135,14 @@ function Form() {
                       Data.append(`author[${index}][firstName]`, element.firstName);
                       Data.append(`author[${index}][lastName]`, element.lastName);
                       Data.append(`author[${index}][email]`, element.email);
-                      Data.append(`author[${index}][country]`, element.country);
-                      Data.append(`author[${index}][address]`, element.address);
                       Data.append(`author[${index}][affiliation]`, element.affiliation);
+                      Data.append(`author[${index}][country]`, element.country);
+                      Data.append(`author[${index}][state]`, element.state);
+                      Data.append(`author[${index}][city]`, element.city);
+                      Data.append(`author[${index}][postCode]`, element.postCode);
+                      Data.append(`author[${index}][street]`, element.street);
+                      Data.append(`author[${index}][line1]`, element.line1);
+                      Data.append(`author[${index}][line2]`, element.line2);
                     })
                     // Data.append( 'author', JSON.stringify(formData.author))
 
@@ -143,7 +154,7 @@ function Form() {
                           'success'
                         )
                         console.log('llllllllllllll', response);
-                        navigate('/history');
+                        navigate('/author/history');
                       })
                       .catch(function (error) {
                         Swal.fire({

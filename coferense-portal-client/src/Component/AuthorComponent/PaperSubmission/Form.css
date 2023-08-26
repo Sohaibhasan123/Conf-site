@@ -72,3 +72,10 @@ margin-left: 5%;
 .alarm{
   background-color: red;
 }
+.height{
+  height: 150px;
+}
+.authorForm input{
+  width: 320px;
+    height: 40px;
+}

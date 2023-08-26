@@ -11,9 +11,15 @@ const AuthorSubmit = mongoose.Schema({
       firstName: String,
       lastName: String,
       email: String,
-      country: String,
-      address: String,
       affiliation: String,
+      country: String,
+      state : String,
+      city : String,
+      postCode : String,
+      street : String,
+      line1 : String,
+      line2 : String,
+
     }]
 
 

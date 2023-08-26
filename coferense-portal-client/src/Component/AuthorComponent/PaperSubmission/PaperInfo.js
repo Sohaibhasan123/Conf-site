@@ -20,7 +20,7 @@ function PaperInfo({ formData, setFormData, wordLimit , setWordLimit , setIsVali
       <div>
         <label className="mt-3 text-dark"><strong>Abstract : </strong> </label>
         <textarea
-          className='form-control h-100'
+          className='form-control height'
           id="word"
           type="text"
           placeholder="Abstract...."

@@ -16,6 +16,7 @@ function FilesUpload({ formData, setFormData }) {
           className="form-control w-50"
           onChange={(e) => {
             setFormData({ ...formData, fileURL: e.target.files[0] })
+            console.log('fileeeeeeeeeeeeeeeeee',formData);
           }} />
       </div>
       <div>

@@ -2,7 +2,7 @@
     {
         "title": "SUbmit Paper",
         "icon": "bi bi-pencil-square",
-        "path" : "/submit-paper"
+        "path" : "/author/submit-paper"
         
     },
     {
@@ -14,7 +14,7 @@
     {
         "title": "History",
         "icon": "bi bi-file-earmark-person-fill",
-        "path" : "/history"
+        "path" : "/author/history"
         
     },
     {

@@ -4,6 +4,8 @@ const reviewerController = require("../../controllers/reviewer.controller")
 
 router.route("/").post(reviewerController.CreateReviewerController);
 router.route("/get-reviewer").post(reviewerController.GetReviewerController);
-// router.route("/").get(adminController.GetAdminController);
+router.route("/selected-reviewer").post(reviewerController.CreateSelectedReviewerController);
+router.route("/").get(reviewerController.GetRequestedReviewersController);
+router.route("/:email").delete(reviewerController.deleteReviewerByIdController);
 
 module.exports = router;

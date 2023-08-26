@@ -25,6 +25,7 @@ import ReviewerPrivetRoute from './Component/Shared/ReviewerPrivetRoute/Reviewer
 import SubmitPaperForm from './Pages/AuthorDashboard/SubmitPaperForm/SubmitPaperForm'
 import AuthorInfoForSubmission from './Component/AuthorComponent/AuthorSubmitForm/AuthorInfoForSubmission';
 import RequestForReviewer from './Pages/AuthorDashboard/RequestForReviewer/RequestForReviewer';
+import AuthorOutlet from './Component/root/AuthorOutlet';
 
 
 
@@ -36,23 +37,30 @@ function App() {
 
 
       <Routes>
-        <Route path="/" element={<AppRouter />}>
 
+        <Route path="/" element={<AppRouter />}>
           <Route path="/" element={<HomePage />} />
           <Route path="/home" element={<HomePage />} />
-          <Route path="/committee" element={<Committee />} />
-          <Route path="/author" element={<PrivateRoute><AuthorHomePage /></PrivateRoute>} />
-          <Route path="/reviewer-qualification" element={<PrivateRoute><RequestForReviewer /></PrivateRoute>} />
-          <Route path="/submit-paper" element={<SubmitPaperForm />} />
-          <Route path="/author-form" element={<AuthorInfoForSubmission />} />
-          <Route path="/history" element={<PrivateRoute><Services /></PrivateRoute>} />
           <Route path="/dates" element={<ImportantDates />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/login" element={<LogIn />} />
           <Route path="/sign-up" element={<SignUp />} />
+          <Route path="/committee" element={<Committee />} />
         </Route>
 
+      </Routes>
+      <Routes>
+        <Route path="/author" element={<AuthorOutlet />}>
 
+
+
+          <Route path="/author" element={<PrivateRoute><AuthorHomePage /></PrivateRoute>} />
+          <Route path="/author/reviewer-qualification" element={<PrivateRoute><RequestForReviewer /></PrivateRoute>} />
+          <Route path="/author/submit-paper" element={<SubmitPaperForm />} />
+          <Route path="/author/author-form" element={<AuthorInfoForSubmission />} />
+          <Route path="/author/history" element={<PrivateRoute><Services /></PrivateRoute>} />
+
+        </Route>
       </Routes>
       <Routes>
         <Route path="/admin" element={<AdminOutlet />}>
@@ -83,7 +91,7 @@ function App() {
         </Route>
       </Routes>
 
-      
+
 
 
 

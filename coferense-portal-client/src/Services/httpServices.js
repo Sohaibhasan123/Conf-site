@@ -18,7 +18,13 @@ const requests = {
         const res = await instance.post(url, body);
         console.log(res);
         return response(res);
-    } 
+    },
+    delete : async (url) =>{
+        const res = await instance.delete(url);
+        console.log(res);
+        return response(res);
+    },
+
 }
 
 export default requests;
