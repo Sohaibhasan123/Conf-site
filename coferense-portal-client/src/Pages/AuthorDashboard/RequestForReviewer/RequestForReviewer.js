@@ -28,6 +28,7 @@ const RequestForReviewer = () => {
                     showConfirmButton: false,
                     timer: 1500
                   })
+                  form.reset()
             }
         // const res = await contactServices.postContact(contact)
         // if(res){
