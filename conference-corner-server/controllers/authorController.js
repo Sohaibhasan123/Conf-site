@@ -2,6 +2,9 @@ const
     authorSubmitServices
  = require("../services/authorSubmit.services");
 
+
+ const queries = {}
+
 exports.CreateAuthorSubmitController = async (req, res, next) => {
     try {
         const fileURL = req.file.path
@@ -28,9 +31,14 @@ exports.CreateAuthorSubmitController = async (req, res, next) => {
     }
 };
 exports.GetAuthorSubmitController = async (req, res, next) => {
+    
+    const {page=1, limit=8} =req.query;
+    const skip = (page-1)*parseInt(limit);
+    queries.skip = skip;
+    queries.limit =limit;
     try {
         
-        const registeredInfo = await authorSubmitServices.getAuthorSubmitServices();
+        const registeredInfo = await authorSubmitServices.getAuthorSubmitServices(queries);
         res.status(200).json({
             status: "success",
             message: "Submitted data get successfully",

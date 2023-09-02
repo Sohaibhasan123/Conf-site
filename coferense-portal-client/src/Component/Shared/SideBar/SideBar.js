@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import './SideBar.css';
 import  {FaUser} from 'react-icons/fa';
@@ -28,7 +28,7 @@ const SideBar = () => {
                         </h6>
 
                         <h6>
-                        <Link to='/reviewer' className="mb-4 text-dark"><MdOutlineRateReview/>Reviewer Dashboard</Link>
+                        <Link to='/reviewer/dashboard' className="mb-4 text-dark"><MdOutlineRateReview/>Reviewer Dashboard</Link>
                         </h6>
                         <h6>
                         <Link to='/admin/dashboard' className="mb-4 text-dark"><FaUserShield/>Admin Dashboard</Link>
