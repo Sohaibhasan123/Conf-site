@@ -5,7 +5,6 @@ import Committee from './Component/Home/committee/committee';
 import AuthorHomePage from './Pages/AuthorDashboard/AuthorHomePage/AuthorHomePage';
 import PrivateRoute from './Component/Shared/PrivateRoute/PrivateRoute';
 import AddAdmin from './Pages/TractChair/AddAdmin/AddAdmin';
-
 import Services from './Component/AuthorComponent/AuthorHistory/Services/Services';
 import ImportantDates from './Pages/ImportantDate/ImportantDates';
 import Contact from './Pages/Contact/Contact';

@@ -34,7 +34,7 @@ const AuthProvider = ({ children }) => {
             checkAdmin(currentUser);
             checkReviewer(currentUser);
 
-            console.log('user observing');
+            console.log('user observing', currentUser);
             setLoading(false);
         });
         

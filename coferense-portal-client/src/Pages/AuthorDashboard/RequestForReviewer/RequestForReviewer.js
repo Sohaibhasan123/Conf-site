@@ -44,7 +44,7 @@ const RequestForReviewer = () => {
                 
                 <div class="mb-4">
                     <label for="inputName" class="form-label text-dark"><strong>Name :</strong></label>
-                    <input required="true" name="name" type="text" class="form-control"  placeholder="Your Name"/>
+                    <input required="true" name="name" type="text" class="form-control"  placeholder="Your Name" disabled value={loggedUser?.displayName}/>
                 </div>
                 <div class=" ml-auto mr-auto mb-4">
                     <label for="inputEmail" class="form-label text-dark"><strong>Email :</strong></label>
@@ -53,7 +53,7 @@ const RequestForReviewer = () => {
                 <div class="ml-auto mr-auto mb-2">
                     <label for="inputMassage" class="form-label text-dark"><strong>Your Massage :</strong>
                     </label>
-                    <textarea required="" name="description" type="text" class="form-control" id="inputMassage" placeholder="Your Massage" style={{height: "150px"}}>
+                    <textarea required="true" name="description" type="text" class="form-control" id="inputMassage" placeholder="Your Massage" style={{height: "150px"}}>
                     </textarea>
                 </div>
                 <div className="text-center">

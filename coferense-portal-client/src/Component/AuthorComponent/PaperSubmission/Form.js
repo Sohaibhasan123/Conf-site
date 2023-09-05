@@ -24,8 +24,8 @@ function Form() {
     fileURL: "",
     paperDomain: '',
     author: [{
-      firstName: "",
-      lastName: "",
+      firstName: loggedUser?.displayName ? loggedUser?.displayName.split(' ')[0] : "",
+      lastName: loggedUser?.displayName ? loggedUser?.displayName.split(' ')[1] : "",
       email: loggedUser?.email,
       affiliation: '',
       country: "",
