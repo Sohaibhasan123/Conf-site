@@ -37,9 +37,9 @@ function PaperInfo({ formData, setFormData, wordLimit , setWordLimit , setIsVali
               }
             });
             setWordLimit(res.length);
-            if(res.length > 5 ){
+            if(res.length > 250 ){
               setIsValid(false)
-              document.querySelector('#textarea_message').innerText= 'max length '+5+' Words only!';
+              document.querySelector('#textarea_message').innerText= 'max length '+250+' Words only!';
               document.getElementById('word').setAttribute('style' , 'border: 3px solid red')
             }
             else
@@ -53,7 +53,7 @@ function PaperInfo({ formData, setFormData, wordLimit , setWordLimit , setIsVali
         }
         />
         <div className={`d-flex justify-content-between ${isValid ? 'text-primary': 'text-danger'} fw-bold`}>
-        <p id="show" className="fw-bold">{wordLimit}/5</p>
+        <p id="show" className="fw-bold">{wordLimit}/250</p>
         <p id="textarea_message"></p>
         </div>
       </div>

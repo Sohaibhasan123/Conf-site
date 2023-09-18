@@ -29,6 +29,7 @@ import {
     createBrowserRouter,
     createRoutesFromElements,
 } from "react-router-dom";
+import AddReview from './Pages/ReviewerDashboard/AddReview/AddReview';
 const RouteJSX = (
     <>
         <>
@@ -97,6 +98,8 @@ const RouteJSX = (
 
 
                     <Route path='/reviewer/submit-paper' element={<PrivateRoute><ReviewerPrivetRoute><SubmitPaperForm /></ReviewerPrivetRoute></PrivateRoute>}>
+                    </Route>
+                    <Route path='/reviewer/add-review/:_id' element={<PrivateRoute><ReviewerPrivetRoute><AddReview /></ReviewerPrivetRoute></PrivateRoute>}>
                     </Route>
                 </Route>
             </Route>
