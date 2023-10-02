@@ -110,9 +110,6 @@ function Form() {
             <button
             onClick={() => {
               if (page === FormTitles.length - 1) {
-                // const proceed = window.confirm("Are You Sure? You Want To Submit")
-
-
                 Swal.fire({
                   title: 'Are you sure?',
                   text: "You won't be able to revert this!",

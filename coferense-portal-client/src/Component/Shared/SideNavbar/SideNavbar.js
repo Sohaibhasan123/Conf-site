@@ -1,31 +1,40 @@
 import SideBarMain from "./SideBarMain"
 import items from "../../../asset/FakeData/SideNavbar.json"
-import React, { useContext } from 'react';
 import { Link } from "react-router-dom";
-import { AuthContext } from "../../Context/AuthProvider/AuthProvider";
 
 
 export default function SideNavbar() {
-  const { loggedUser, logOut } = useContext(AuthContext);
-  const handleLogOut = () => {
-    if (loggedUser.email) {
-      logOut()
-      .then(()=>{})
-      .catch(error =>{
-          console.log(error);
-      })
-    }
-  }
+  // const { loggedUser, logOut } = useContext(AuthContext);
+
   return (
     <div className="sidebar">
+      <section>
+        <div class="dropdown px-2 my-3">
+          <i className='bi bi-person-plus'></i>
+          <span
+            class="dropdown-toggle ms-3 p-2"
+            id="dropdownMenuButton"
+            data-mdb-toggle="dropdown"
+            aria-expanded="false"
+          >
+            Customize Page
+          </span>
+          <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <li>
+              <Link class="dropdown-item" to="admin/customize-homepage">Customize HomePage</Link>
+            </li>
+            <li>
+              <Link class="dropdown-item" to="/admin/customize-date">Customize Date</Link>
+            </li>
+            <li>
+              <Link class="dropdown-item" href="#">Something else here</Link>
+            </li>
+          </ul>
+        </div>
+      </section>
       {items.map((item, index) => <SideBarMain key={index} item={item} />)}
-      <div onClick={
-        handleLogOut
-      }
-        className="px-2 d-flex align-items-center" >
-          <i className='bi bi-person-dash'></i>
-        <span className="m-0 p-2"> <Link to='/login' className='sidebar-item plain'>{loggedUser?.email ? 'LogOut' : "LogIn"}</Link> </span>
-      </div>
+
+
     </div>
   )
 }

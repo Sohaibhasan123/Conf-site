@@ -28,7 +28,7 @@ function Footer() {
             <tr>
               <td>
                 <ul className="list-unstyled">
-                  <li className="text-bold">Assistant Professor</li>
+                  <li className="text-bold">Associate Professor</li>
                   <li> <BsTelephone />342-420-6969</li>
                   <li><AiOutlineMail /> mk.islam@just.edu.bd </li>
                 </ul>

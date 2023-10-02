@@ -13,6 +13,14 @@ class AdminServices {
         console.log(body);
         return requests.post('/admin/get-admin', body);
     }
+    RemoveAdminByEmail(email){
+        console.log('body',email);
+        return requests.delete(`/admin/admin-list/${email}`);
+    }
+    postHomeMassage(body) {
+        console.log(body);
+        return requests.post('/admin/home-content', body);
+    }
 }
 
 

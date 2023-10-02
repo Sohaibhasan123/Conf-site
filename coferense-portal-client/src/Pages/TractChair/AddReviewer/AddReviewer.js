@@ -5,7 +5,6 @@ import { useLoaderData } from 'react-router-dom';
 const AddReviewer = () => {
 
     const loadedUser = useLoaderData();
-console.log(loadedUser);
      const [requestedReviewerList, setRequestedReviewerList] = useState(loadedUser.data);
 
 
@@ -65,7 +64,7 @@ console.log(loadedUser);
         })
     }
 
-    const makeReviewer = (email) => {
+    const makeReviewer = (email, name) => {
 
         Swal.fire({
             title: 'Are you sure?',
@@ -77,7 +76,7 @@ console.log(loadedUser);
             confirmButtonText: 'Yes !'
         }).then(async (result) => {
             if (result.isConfirmed) {
-                const res = await reviewerServices.postSelectedReviewer({ 'email': email });
+                const res = await reviewerServices.postSelectedReviewer({ 'email': email, 'name': name });
 
                 if (res) {
                     const deleted = await reviewerServices.deleteReviewerById(email);
@@ -127,15 +126,15 @@ console.log(loadedUser);
                 </thead>
                 <tbody>
                     {
-                        // user?.data?.map((reviewer, index) => <ReviewerList key={index} reviewer={reviewer} index={index} makeReviewer={makeReviewer} />)
+                        
                         requestedReviewerList?.map((reviewer, index) => (
                             <tr>
                                 <th scope="row">{index + 1}</th>
                                 <td>{reviewer.name}</td>
                                 <td>{reviewer.email}</td>
                                 <td>
-                                    <button onClick={() => makeReviewer(reviewer.email)} type="button" class="btn btn-outline-dark">Make Reviewer</button>
-                                    <button onClick={() => RejectReviewerRequest(reviewer.email)} type="button" class="btn btn-outline-danger">Reject Request</button>
+                                    <button onClick={() => makeReviewer(reviewer.email, reviewer.name)} type="button" class="btn btn-outline-dark">Make Reviewer</button>
+                                    <button onClick={() => RejectReviewerRequest(reviewer.email)} type="button" class="btn btn-outline-danger ms-2">Reject Request</button>
                                 </td>
                             </tr>
                         ))

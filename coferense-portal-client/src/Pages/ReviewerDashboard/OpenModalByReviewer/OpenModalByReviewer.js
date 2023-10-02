@@ -1,6 +1,6 @@
 import React from 'react';
 
-const OpenModalByReviewer = ({paper, link}) => {
+const OpenModalByReviewer = ({paper, state}) => {
     return (
         <div>
             
@@ -8,12 +8,12 @@ const OpenModalByReviewer = ({paper, link}) => {
                     <div class="modal-dialog modal-fullscreen pe-4">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h2 class="modal-title" id="staticBackdropLabel">{paper.title}</h2>
+                                <h2 class="modal-title" id="staticBackdropLabel">{state.title}</h2>
                                 <button type="button" class="btn-close bg-danger p-3" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
                             {console.log(paper.fileURL)}
                             <div style={{ height: "1200px" }}>
-                                <iframe title={Math.random()} style={{ width: "100%", height: "100%" }} src={`http://localhost:8080/${link}`}></iframe>
+                                <iframe title={Math.random()} style={{ width: "100%", height: "100%" }} src={`http://localhost:8080/${state.link}`}></iframe>
                             </div>
                             {/* <div class={`container d-flex  justify-content-between align-items-center ${open ? "d-none" : ""}`} >
 

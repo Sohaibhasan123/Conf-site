@@ -66,6 +66,24 @@ exports.GetReviewerController = async (req, res, next) => {
         })
     }
 };
+exports.GetAllReviewerListController = async (req, res, next) => {
+    try {
+        
+        const reviewerList = await reviewerServices.getAllReviewersListServices();
+        res.status(200).json({
+            status: "success",
+            message: "Reviewer Selected List get successfully",
+            data: reviewerList
+        })
+    } catch (err) {
+        res.status(400).json({
+            status: "Fail",
+            message: "Can't get Reviewer List",
+            error: err,
+            
+        })
+    }
+};
 exports.GetRequestedReviewersController = async (req, res, next) => {
     try {
         const reviewerList = await reviewerServices.getRequestedReviewersListServices();
@@ -88,6 +106,25 @@ exports.deleteReviewerByIdController = async (req, res, next) => {
         const {email} = req.params
         console.log("deleteReviewerByIdController id ",email); 
         const reviewerList = await reviewerServices.deleteReviewerByIdService(email);
+        res.status(200).json({
+            status: "success",
+            message: "Reviewer Deleted successesFully",
+            data: reviewerList
+        })
+    } catch (err) {
+        res.status(400).json({
+            status: "Fail",
+            message: "Can't get Reviewer List",
+            error: err,
+            
+        })
+    }
+};
+exports.deleteSelectedReviewerController = async (req, res, next) => {
+    try {
+        const {email} = req.params
+        console.log("deleteReviewerByIdController id ",email); 
+        const reviewerList = await reviewerServices.deleteSelectedReviewerService(email);
         res.status(200).json({
             status: "success",
             message: "Reviewer Deleted successesFully",

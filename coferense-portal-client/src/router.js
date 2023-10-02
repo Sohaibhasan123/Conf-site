@@ -30,6 +30,10 @@ import {
     createRoutesFromElements,
 } from "react-router-dom";
 import AddReview from './Pages/ReviewerDashboard/AddReview/AddReview';
+import ManageReviewer from './Pages/TractChair/ManageRevieweer/ManageRevieweer';
+import ManageAdmin from './Pages/TractChair/ManageAdmin/ManageAdmin';
+import CustomizeHomePage from './Pages/AdminDashboard/CustomizeHomePage/CustomizeHomePage';
+import UpdateConferenceDate from './Pages/AdminDashboard/UpdateConferenceDate/UpdateConferenceDate';
 const RouteJSX = (
     <>
         <>
@@ -50,19 +54,27 @@ const RouteJSX = (
                 <Route path="/author" element={<AuthorOutlet />}>
 
                     <Route path="/author" element={<PrivateRoute><AuthorHomePage /></PrivateRoute>} />
-                    <Route path="/author/reviewer-qualification" element={<PrivateRoute><RequestForReviewer /></PrivateRoute>} />
+                    <Route path="/author/reviewer-qualification"
+                        loader={({ request }) =>
+                            fetch("http://localhost:8080/api/v1/reviewer", {
+                                signal: request.signal,
+                            })
+                        }
+                        element={<PrivateRoute><RequestForReviewer /></PrivateRoute>} />
                     <Route path="/author/submit-paper" element={<SubmitPaperForm />} />
                     <Route path="/author/author-form" element={<AuthorInfoForSubmission />} />
                     <Route path="/author/history" element={<PrivateRoute><Services /></PrivateRoute>} />
 
                 </Route>
             </Route>
-            <Route>
-                <Route path="/admin" element={<AdminOutlet />}>
-                    <Route path='/admin/dashboard' element={<PrivateRoute><AdminPrivetRoute><AdminHomePage /></AdminPrivetRoute></PrivateRoute>}></Route>
-                </Route>
 
+            <Route path="/admin" element={<AdminOutlet />}>
+                <Route path='/admin/dashboard' element={<PrivateRoute><AdminPrivetRoute><AdminHomePage /></AdminPrivetRoute></PrivateRoute>}></Route>
+                <Route path='/admin/admin/customize-homepage' element={<PrivateRoute><AdminPrivetRoute><CustomizeHomePage /></AdminPrivetRoute></PrivateRoute>}></Route>
+                <Route path='/admin/customize-date' element={<PrivateRoute><AdminPrivetRoute><UpdateConferenceDate /></AdminPrivetRoute></PrivateRoute>}></Route>
             </Route>
+
+
 
 
             <Route>
@@ -79,6 +91,22 @@ const RouteJSX = (
                             })
                         }
                         element={<PrivateRoute><TractPrivateRoute><AddReviewer /></TractPrivateRoute></PrivateRoute>}>
+                    </Route>
+                    <Route path='/tract-chair/manage-reviewer'
+                        loader={({ request }) =>
+                            fetch("http://localhost:8080/api/v1/reviewer/selected-reviewer-list", {
+                                signal: request.signal,
+                            })
+                        }
+                        element={<PrivateRoute><TractPrivateRoute><ManageReviewer /></TractPrivateRoute></PrivateRoute>}>
+                    </Route>
+                    <Route path='tract-chair/manage-admin'
+                        loader={({ request }) =>
+                            fetch("http://localhost:8080/api/v1/admin/admin-list", {
+                                signal: request.signal,
+                            })
+                        }
+                        element={<PrivateRoute><TractPrivateRoute><ManageAdmin /></TractPrivateRoute></PrivateRoute>}>
                     </Route>
                 </Route>
             </Route>

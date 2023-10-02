@@ -1,19 +1,14 @@
 import React from 'react';
 import './AuthorHome.css'
-import { useContext } from 'react';
 import { MdOutlineArrowForwardIos } from 'react-icons/md'
 import { IoIosArrowBack } from 'react-icons/io'
 import { Link } from 'react-router-dom';
-import { AuthContext } from '../../Context/AuthProvider/AuthProvider';
 
 const AuthorHome = () => {
-    const { loggedUser } = useContext(AuthContext);
+    
     return (
         <div className='text-center'>
-            {console.log(loggedUser)}
-            <h1>{loggedUser?.name} HomePage</h1>
-
-            <section className='my-5'>
+            <section className='my-2'>
                 <h3 className='text-center text-bg-danger mx-5'><IoIosArrowBack /><IoIosArrowBack />Important Dates<MdOutlineArrowForwardIos /><MdOutlineArrowForwardIos /></h3>
                 <div className='text-center my-5'>
                     <h6><strong>Paper Submission Deadline : </strong> <strong className='text-primary'> March 31, 2023</strong></h6>

@@ -24,7 +24,7 @@ const TractRoot = () => {
                         <span className="m-0 p-2"> <Link to='/tract-chair/add-reviewer' className='sidebar-item plain'>Add Reviewer</Link> </span>
                     </div>
                     <div class="dropdown px-2 my-3">
-                    <i className='bi bi-person-plus'></i>
+                        <i className='bi bi-person-plus'></i>
                         <span
                             class="dropdown-toggle ms-3 p-2"
                             id="dropdownMenuButton"
@@ -34,9 +34,15 @@ const TractRoot = () => {
                             Manage User
                         </span>
                         <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                            <li><Link class="dropdown-item" href="#">Manage Admin</Link></li>
-                            <li><Link class="dropdown-item" href="#">Manage Reviewer</Link></li>
-                            <li><Link class="dropdown-item" href="#">Something else here</Link></li>
+                            <li>
+                                <Link class="dropdown-item" to="tract-chair/manage-admin">Manage Admin</Link>
+                            </li>
+                            <li>
+                                <Link class="dropdown-item" to="/tract-chair/manage-reviewer">Manage Reviewer</Link>
+                            </li>
+                            <li>
+                                <Link class="dropdown-item" href="#">Something else here</Link>
+                            </li>
                         </ul>
                     </div>
                     <div

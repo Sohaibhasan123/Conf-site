@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useLoaderData } from 'react-router-dom';
-import { BsArrowUpCircleFill } from "react-icons/bs";
-import { BsArrowDownCircle } from "react-icons/bs";
+// import { BsArrowUpCircleFill } from "react-icons/bs";
+// import { BsArrowDownCircle } from "react-icons/bs";
 import './ReviewerHomePage.css'
 import ReactPaginate from 'react-paginate';
 import OpenModalByReviewer from '../OpenModalByReviewer/OpenModalByReviewer';
@@ -9,11 +9,14 @@ const ReviewerHomePage = () => {
 
     const papers = useLoaderData()
     const [PaperList, setPaperList] = useState(papers.data)
-    const [open, setOpen] = useState(false);
-    const [link , setLink] = useState('');
-    const renderOpenClose = () => {
-        setOpen(!open)
-    }
+    // const [open, setOpen] = useState(false);
+    const [state, setState] = useState({
+        link: "",
+        title: ""
+    });
+    // const renderOpenClose = () => {
+    //     setOpen(!open)
+    // }
     const [pageNumber, setPageNumber] = useState(0);
     const papersPerPage = 8;
     const paperVisited = pageNumber * papersPerPage;
@@ -24,18 +27,26 @@ const ReviewerHomePage = () => {
             <>
                 <div class="card p-2 m-2" style={{ width: "48%" }}>
                     <div class="card-block">
-                        <h4 class="card-title text-center">{paper.title}</h4>
-                        <h6 class="card-subtitle text-muted">{paper.abstract}</h6>
+                        <div>
+                            <h3 className='cd-header'>{paper.title}</h3>
+                        </div>
+
+                        <div className='card-body'>
+                            <p class="card-subtitle">{paper.abstract}</p>
+                        </div>
                         <div className='text-end'>
                             {/* <!-- Button trigger modal --> */}
-                            <Link to={`/reviewer/add-review/${paper._id}`}  state = {{
-                                    paper : paper
-                                }} class="btn btn-outline-info">
-                                Add Review
-                            </Link>
-                            <button type="button" class="btn btn-outline-info" data-bs-toggle="modal" data-bs-target="#staticBackdrop" onClick={()=>setLink(paper.fileURL)}>
-                                Open PDF
-                            </button>
+
+                            <div class="buttons">
+                                <Link to={`/reviewer/add-review/${paper._id}`} state={{
+                                    paper: paper
+                                }} class="btn btn-outline-info me-2">
+                                    Add Review
+                                </Link>
+                                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop" onClick={() => setState({ link: paper.fileURL, title: paper.title })}>
+                                    Open PDF
+                                </button>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -43,7 +54,8 @@ const ReviewerHomePage = () => {
 
 
                 {/* <!-- Modal --> */}
-                <OpenModalByReviewer paper={paper} link = {link}></OpenModalByReviewer>
+                <OpenModalByReviewer paper={paper} state={state}></OpenModalByReviewer>
+
             </>
         )
     });
@@ -53,7 +65,7 @@ const ReviewerHomePage = () => {
     }
     return (
         <div >
-            <div className='container row ms-1'>
+            <div className='container d-flex ms-1 BGC'>
                 {displayPaper}
             </div>
             <div className='ul-center my-3'>

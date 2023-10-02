@@ -2,7 +2,8 @@ const mongoose = require('mongoose');
 
 
 const ReviewerList = mongoose.Schema({
-    email : String,
+    name: String,
+    email : String
 
 },{
     timestamps: true

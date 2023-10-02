@@ -20,6 +20,10 @@ class ReviewerServices {
         console.log('body',email);
         return requests.delete(`/reviewer/${email}`);
     }
+    deleteSelectedReviewerByEmail(email){
+        console.log('body',email);
+        return requests.delete(`/reviewer/reviewer-list/${email}`);
+    }
 }
 
 
