@@ -13,16 +13,6 @@ const TractRoot = () => {
             <div className="row">
                 <HomeNavBar />
                 <div className="col-2">
-                    <div
-                        className="px-2 d-flex align-items-center " >
-                        <i className='bi bi-person-plus'></i>
-                        <span className="m-0 p-2"> <Link to='/tract-chair/make-admin' className='sidebar-item plain'>Make Admin</Link> </span>
-                    </div>
-                    <div
-                        className="px-2 d-flex align-items-center" >
-                        <i className='bi bi-person-plus'></i>
-                        <span className="m-0 p-2"> <Link to='/tract-chair/add-reviewer' className='sidebar-item plain'>Add Reviewer</Link> </span>
-                    </div>
                     <div class="dropdown px-2 my-3">
                         <i className='bi bi-person-plus'></i>
                         <span
@@ -35,6 +25,9 @@ const TractRoot = () => {
                         </span>
                         <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                             <li>
+                                <Link class="dropdown-item" to="tract-chair/manage-paper">Manage Paper</Link>
+                            </li>
+                            <li>
                                 <Link class="dropdown-item" to="tract-chair/manage-admin">Manage Admin</Link>
                             </li>
                             <li>
@@ -45,6 +38,17 @@ const TractRoot = () => {
                             </li>
                         </ul>
                     </div>
+                    <div
+                        className="px-2 d-flex align-items-center " >
+                        <i className='bi bi-person-plus'></i>
+                        <span className="m-0 p-2"> <Link to='/tract-chair/make-admin' className='sidebar-item plain'>Make Admin</Link> </span>
+                    </div>
+                    <div
+                        className="px-2 d-flex align-items-center" >
+                        <i className='bi bi-person-plus'></i>
+                        <span className="m-0 p-2"> <Link to='/tract-chair/add-reviewer' className='sidebar-item plain'>Add Reviewer</Link> </span>
+                    </div>
+
                     <div
                         className="px-2 d-flex align-items-center " >
                         <i className='bi bi-house-door-fill'></i>

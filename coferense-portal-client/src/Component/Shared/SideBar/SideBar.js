@@ -34,7 +34,7 @@ const SideBar = () => {
                         <Link to='/admin/dashboard' className="mb-4 text-dark"><FaUserShield/>Admin Dashboard</Link>
                         </h6>
                         <h6>
-                        <Link to='/tract-chair' className="text-dark"><RiAdminFill />Tract Chair </Link>
+                        <Link to='/tract-chair' className="text-dark"><RiAdminFill />Track Chair </Link>
                         </h6>
                         <h6>
                         <Link to='/' className="text-dark"><ImPhone />  Support</Link>

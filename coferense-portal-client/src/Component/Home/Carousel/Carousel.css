@@ -10,9 +10,9 @@
   margin: auto;
   border-radius: 10px;
 }
-#carouselExampleDark img{
+/* #carouselExampleDark img{
     animation: zoom-in-zoom-out 10s ease infinite;
-}
+} */
 #carouselExampleDark h6{
   font-size: 20px;
   margin: 25px 0px;

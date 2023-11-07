@@ -34,6 +34,7 @@ import ManageReviewer from './Pages/TractChair/ManageRevieweer/ManageRevieweer';
 import ManageAdmin from './Pages/TractChair/ManageAdmin/ManageAdmin';
 import CustomizeHomePage from './Pages/AdminDashboard/CustomizeHomePage/CustomizeHomePage';
 import UpdateConferenceDate from './Pages/AdminDashboard/UpdateConferenceDate/UpdateConferenceDate';
+import AssignPaperToReviewer from './Pages/TractChair/AssignPaperToReviewer/AssignPaperToReviewer';
 const RouteJSX = (
     <>
         <>
@@ -79,7 +80,21 @@ const RouteJSX = (
 
             <Route>
                 <Route path="/tract-chair" element={<TractRoot />}>
-                    <Route path='/tract-chair' element={<PrivateRoute><TractPrivateRoute><TractChairHomePage /></TractPrivateRoute></PrivateRoute>}>
+                    <Route path='/tract-chair'
+                        loader={({ request }) =>
+                            fetch(`http://localhost:8080/api/v1/submit?page=1`, {
+                                signal: request.signal,
+                            })
+                        }
+                        element={<PrivateRoute><TractPrivateRoute><TractChairHomePage /></TractPrivateRoute></PrivateRoute>}>
+                    </Route>
+                    <Route path='/tract-chair/tract-chair/manage-paper'
+                        loader={({ request }) =>
+                            fetch(`http://localhost:8080/api/v1/submit?page=1`, {
+                                signal: request.signal,
+                            })
+                        }
+                        element={<PrivateRoute><TractPrivateRoute><TractChairHomePage /></TractPrivateRoute></PrivateRoute>}>
                     </Route>
 
                     <Route path='/tract-chair/make-admin' element={<PrivateRoute><TractPrivateRoute><AddAdmin /></TractPrivateRoute></PrivateRoute>}>
@@ -107,6 +122,14 @@ const RouteJSX = (
                             })
                         }
                         element={<PrivateRoute><TractPrivateRoute><ManageAdmin /></TractPrivateRoute></PrivateRoute>}>
+                    </Route>
+                    <Route path='/tract-chair/add-paper-to-reviewer/:_id'
+                        loader={({ request }) =>
+                            fetch("http://localhost:8080/api/v1/reviewer/selected-reviewer-list", {
+                                signal: request.signal,
+                            })
+                        }
+                        element={<PrivateRoute><TractPrivateRoute><AssignPaperToReviewer /></TractPrivateRoute></PrivateRoute>}>
                     </Route>
                 </Route>
             </Route>

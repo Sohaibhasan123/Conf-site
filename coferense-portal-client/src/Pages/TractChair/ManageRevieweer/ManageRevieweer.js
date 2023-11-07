@@ -61,7 +61,7 @@ const ManageReviewer = () => {
                                 <th scope="row">{index + 1}</th>
                                 <td>{reviewer.name}</td>
                                 <td>{reviewer.email}</td>
-                                <td><button type="button" class="btn btn-danger" onClick={()=>removeReviewer(reviewer.email)}>Remove</button></td>
+                                <td><button type="button" class="btn btn-danger" onClick={()=>removeReviewer(reviewer.email)}> Assign </button></td>
                             </tr>
                         )
 
