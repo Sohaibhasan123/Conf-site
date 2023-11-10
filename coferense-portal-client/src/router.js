@@ -35,6 +35,7 @@ import ManageAdmin from './Pages/TractChair/ManageAdmin/ManageAdmin';
 import CustomizeHomePage from './Pages/AdminDashboard/CustomizeHomePage/CustomizeHomePage';
 import UpdateConferenceDate from './Pages/AdminDashboard/UpdateConferenceDate/UpdateConferenceDate';
 import AssignPaperToReviewer from './Pages/TractChair/AssignPaperToReviewer/AssignPaperToReviewer';
+import ManageCommittee from './Pages/TractChair/ManageCommittee/ManageCommittee';
 const RouteJSX = (
     <>
         <>
@@ -130,6 +131,8 @@ const RouteJSX = (
                             })
                         }
                         element={<PrivateRoute><TractPrivateRoute><AssignPaperToReviewer /></TractPrivateRoute></PrivateRoute>}>
+                    </Route>
+                    <Route path='/tract-chair/manage-committee' element={<PrivateRoute><TractPrivateRoute><ManageCommittee /></TractPrivateRoute></PrivateRoute>}>
                     </Route>
                 </Route>
             </Route>

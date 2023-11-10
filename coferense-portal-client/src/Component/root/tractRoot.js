@@ -34,7 +34,7 @@ const TractRoot = () => {
                                 <Link class="dropdown-item" to="/tract-chair/manage-reviewer">Manage Reviewer</Link>
                             </li>
                             <li>
-                                <Link class="dropdown-item" href="#">Something else here</Link>
+                                <Link class="dropdown-item" to="/tract-chair/manage-committee">Manage Committee</Link>
                             </li>
                         </ul>
                     </div>
