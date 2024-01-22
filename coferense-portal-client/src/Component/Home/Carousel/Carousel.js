@@ -3,7 +3,7 @@ import { MdOutlineArrowForwardIos } from 'react-icons/md'
 import { IoIosArrowBack } from 'react-icons/io'
 import versityOne from '../../../asset/images/basketField.jpg';
 import versityTwo from '../../../asset/images/wetView.jpg';
-import versityThree from '../../../asset/images/versity1`.jpg';
+import versityThree from '../../../asset/images/versity1`.jpg'; 
 import './Carousel.css'
 
 
